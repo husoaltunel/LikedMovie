@@ -1,10 +1,20 @@
+<div *ngIf="selectedMovie" class="card mb-2">
+    <div class="card-body">
+        <span class="badge badge-warning mb-1">id : {{selectedMovie.id}} name : {{selectedMovie.name}}</span>
+        <div class="input-group">
+            <input class="form-control" type="text" name="" id="" [(ngModel)]="selectedMovie.name">
+            <button class=" btn btn-outline-primary input-group-append">Update</button>
+        </div>
+    </div>
+</div>
 
 <div class="card">
     <div class="card-header">
         {{title}}
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let movie of movies">
+        <li class="list-group-item" *ngFor="let movie of movies" (click)="movieSelect(movie);
+        " [class.active]="movie === selectedMovie">
             <span class="badge badge-primary"> {{movie.id}}</span>
             {{movie.name}}
             <span class="close">X</span>

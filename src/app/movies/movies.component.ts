@@ -1,3 +1,4 @@
+import { Movie } from './../movie';
 import { Movies } from '../movie-datas';
 import { Component } from '@angular/core';
 
@@ -9,5 +10,9 @@ import { Component } from '@angular/core';
 export class MoviesComponent {
     title = 'Movie List';
     movies = Movies;
+    selectedMovie : Movie;
+    movieSelect(Movie: Movie) {
+        this.selectedMovie = Movie;
+    }
 
 }
