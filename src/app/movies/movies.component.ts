@@ -1,4 +1,4 @@
-import { Movie } from './../movie/movie';
+import { Movies } from '../movie-datas';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 })
 export class MoviesComponent {
     title = 'Movie List';
-    movie: Movie = { id: 1, name: "Hell" };
+    movies = Movies;
 
 }
