@@ -16,4 +16,12 @@ export class MovieService {
     this.messageService.add('movieService : Movies Listing');
     return of(Movies);
   }
+  getMovie(id) : Observable<Movie>{
+    this.messageService.add('Movie Service: Detail id '+id)
+    return of(Movies.find(movie => movie.id === id));
+
+  }
+
+
 }
+

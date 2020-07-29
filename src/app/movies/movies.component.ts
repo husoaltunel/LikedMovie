@@ -9,18 +9,20 @@ import { Component } from '@angular/core';
     styleUrls: ['movies.component.css']
 })
 export class MoviesComponent {
-    title = 'Movie List';
-    selectedMovie : Movie;
-    movies : Movie [];
-    movieSelect(Movie: Movie) {
-        this.selectedMovie = Movie;
-    }
+   
     constructor(private movieService : MovieService) {
 
     }
     ngOnInit(): void {
         this.getMovies();
         
+    }
+
+    title = 'Movie List';
+    selectedMovie : Movie;
+    movies : Movie [];
+    movieSelect(Movie: Movie) {
+        this.selectedMovie = Movie;
     }
     getMovies() : void {
        this.movieService.getMovies().subscribe(movies =>  this.movies = movies );
