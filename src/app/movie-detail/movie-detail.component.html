@@ -1,9 +1,19 @@
 <div  class="card my-3">
     <div class="card-body">
-        <span class="badge badge-warning mb-1">id : {{movie.id}} name : {{movie.name}}</span>
-        <div class="input-group">
-            <input class="form-control" type="text" name="" id="" [(ngModel)]="movie.name">
-            <button class=" btn btn-outline-primary input-group-append">Update</button>
-        </div>
+        <span class="badge badge-warning mb-1">id : {{movie.id}}</span>
+
+       <div class="form-group">
+           <label for="name"></label>
+           <input type="text" class="form-control" [(ngModel)]="movie.name">
+       </div>
+       <div class="form-group">
+           <label for="imgUrl"></label>
+           <input type="text" [(ngModel)]="movie.imgUrl" class="form-control">
+       </div>
+       <div class="form-group">
+           <label for="description"></label>
+           <textarea class="form-control" [(ngModel)]="movie.description"></textarea>
+       </div>
+       <button class="btn btn-primary btn-sm" (click)="updateMovie()">Update</button>
     </div>
 </div>

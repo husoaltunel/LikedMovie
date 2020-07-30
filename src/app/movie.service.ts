@@ -1,9 +1,8 @@
 import { MessageService } from './message.service';
-import { Movies } from './movie-datas';
 import { Movie } from './movie';
 import { Injectable } from '@angular/core';
 import { Observable,of } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 
@@ -24,6 +23,12 @@ export class MovieService {
     this.messageService.add('Movie Service: Detail id '+id)
     return this.http.get<Movie>(this.movieDatasUrl+'/'+id);
 
+  }
+  updateMovie(movie : Movie) : Observable<any>{
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type':'application/json'})
+    }
+     return this.http.put(this.movieDatasUrl,movie,httpOptions);
   }
 
 
