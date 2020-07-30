@@ -29,11 +29,16 @@ export class MoviesComponent {
     }
 
     addMovie(imgUrl: string, name: string, description: string): void {
-        
-       
-        this.movieService.addMovie({name:name, description:description, imgUrl:imgUrl} as Movie).subscribe(movie => {
+
+
+        this.movieService.addMovie({ name: name, description: description, imgUrl: imgUrl } as Movie).subscribe(movie => {
             this.movies.push(movie);
         });
     }
-    
+    deleteMovie(id: number): void {
+        this.movies = this.movies.filter(movie => movie.id !== id )
+        this.movieService.deleteMovie(id).subscribe()
+
+    }
+
 }

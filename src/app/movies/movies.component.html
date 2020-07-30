@@ -7,7 +7,7 @@
         " [class.active]="movie === selectedMovie">
             <span class="badge badge-primary"> {{movie.id}}</span>
             {{movie.name}}
-            <span class="close">X</span>
+            <span class="close" (click)="deleteMovie(movie.id)">X</span>
         </li>
     </ul>
 
