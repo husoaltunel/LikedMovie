@@ -1,4 +1,3 @@
-
 <div class="card">
     <div class="card-header">
         {{title}}
@@ -12,4 +11,28 @@
         </li>
     </ul>
 
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Add Movie
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="name">Image Url</label>
+            <input type="text" class="form-control" #addedImgUrl>
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" #addedName>
+        </div>
+        <div class="form-group">
+            <label for="name">Description</label>
+            <textarea class="form-control" #addedDescription></textarea>
+        </div>
+        <button class="btn btn-primary"
+            (click)="addMovie(addedImgUrl.value, addedName.value, addedDescription.value);addedImgUrl.value=''; addedName.value=''; addedDescription.value='';">
+            AddMovie
+        </button>
+    </div>
 </div>

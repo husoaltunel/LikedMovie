@@ -14,6 +14,7 @@ export class MovieService {
   constructor(private messageService : MessageService,private http : HttpClient) { }
 
   movieDatasUrl = 'api/movies';
+  addedMovie : Movie;
 
   getMovies() : Observable<Movie[]> { 
     this.messageService.add('movieService : Movies Listing');
@@ -27,10 +28,15 @@ export class MovieService {
   updateMovie(movie : Movie) : Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type':'application/json'})
-    }
+    };
      return this.http.put(this.movieDatasUrl,movie,httpOptions);
   }
-
+  
+  addMovie(movie : Movie) : Observable<Movie> {
+    
+    return this.http.post<Movie>(this.movieDatasUrl,movie);
+  }
+  
 
 }
 
